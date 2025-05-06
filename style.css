@@ -48,7 +48,7 @@ body {
   
   .hero span {
     font-weight: bold;
-    color: #1c1c1c;
+    color: #2c3e50;
   }
   
   .hero p {
@@ -134,7 +134,8 @@ body {
     border-bottom: 1px solid #ddd;
   }
   
-  .logo {
+
+  .a .logo {
     font-weight: bold;
     font-size: 1.2rem;
   }
@@ -201,6 +202,54 @@ body {
   .tip-card h3 {
     margin-bottom: 0.5rem;
     font-weight: bold;
+  }
+  
+  .kompos-detail {
+    max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.kompos-detail .hero {
+  margin-bottom: 2rem;
+}
+
+.kompos-detail .steps {
+  margin-bottom: 2rem;
+}
+
+.kompos-detail .video-tutorial {
+  margin-bottom: 2rem;
+}
+
+.kompos-detail .back-button {
+  text-align: left;
+}
+
+.kompos-detail .back-button .join-btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background: #2c3e50;
+  color: #fff;
+  border-radius: 0.5rem;
+  text-decoration: none;
+}
+  
+  .tip-link {
+    font-weight: bold;
+    color: #2c3e50;
+    text-decoration: none;
+  }
+  
+  .tip-link:hover {
+    text-decoration: underline;
+  }
+  
+  .tip-link:visited {
+    color: #2c3e50;
   }
   
   .join-section {
