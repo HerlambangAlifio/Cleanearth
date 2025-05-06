@@ -1,0 +1,110 @@
+/* Kompos Detail - CleanEarth Style */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  body {
+    background: #f9fbfc;
+    color: #2c3e50;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #f0f4f9;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .navbar .logo {
+    font-weight: bold;
+    font-size: 18px;
+    color: #1e2d3b;
+    text-decoration: none;
+  }
+
+  .login-btn {
+    background: #2c3e50;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }
+  
+  .kompos-detail {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .kompos-detail h1 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+  }
+  
+  .kompos-detail p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .kompos-detail h2 {
+    font-size: 1.4rem;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    color: #2c3e50;
+  }
+  
+  .kompos-detail ul,
+  .kompos-detail ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .kompos-detail li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .video-tutorial {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .video-tutorial h2 {
+    margin-bottom: 1rem;
+  }
+  
+  iframe {
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .back-button {
+    margin-top: 2rem;
+  }
+  
+  .back-button .join-btn {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    background: #2c3e50;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.2s ease-in-out;
+  }
+  
+  .back-button .join-btn:hover {
+    background: #1e2d3b;
+  }
+  
