@@ -121,8 +121,9 @@ nav a.active {
   width: 400px;
   height: 400px;
   justify-content: center;
-  margin-left: 30%;
+  margin-left: 35%;
   cursor: pointer;
+  margin-top: 50px;
 }
 
 .hero-stack img {
@@ -132,19 +133,151 @@ nav a.active {
   transform: translate(-50%, -50%);
 }
 
-footer {
-  background: #2d3748;
-  color: white;
-  padding: 2rem;
+
+.dokumentasi {
+  text-align: center;
+  padding: 3rem 1rem;
+  background-color: #f9fbfd;
+}
+
+.dokumentasi h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.dokumentasi p {
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.foto-container {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.foto {
+  width: 200px;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  margin-top: 50px;
+}
+
+.tilt-left {
+  transform: rotate(-5deg);
+}
+
+.center {
+  transform: scale(1.05);
+}
+
+.tilt-right {
+  transform: rotate(5deg);
+}
+
+.testimoni-container {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+}
+
+.testimoni {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  width: 300px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+  text-align: left;
+  margin-top: 50px;
+}
+
+.stars {
+  color: gold;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.testimoni p {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.testimoni strong {
+  color: #1e2d3b;
+}
+
+.footer-wrapper {
+  position: relative;
+  background-color: #f8fbff;
+  margin-top: 3rem;
+  
+}
+
+.gabung-box {
+  max-width: 80%;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 16px;
+  padding: 2rem 2rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  position: relative;
+  top: 60px; /* Naik ke atas */
+}
+
+.gabung-text h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #2f3f57;
+  font-weight: bold;
+}
+
+.gabung-text p {
+  margin-top: 0.3rem;
+  color: #333;
+}
+
+.btn-gabung {
+  background-color: #2f3f57;
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+
+.footer {
+  background-color: #2f3f57;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  padding: 5rem 2rem 2rem 2rem;
   flex-wrap: wrap;
 }
 
-.footer-brand h3 {
-  margin: 0;
-}
-
-.footer-info h4 {
+.footer h4 {
   margin-bottom: 0.5rem;
 }
+
+.footer-left, .footer-mid, .footer-right {
+  max-width: 300px;
+}
+
+.logo-icon {
+  font-size: 24px;
+}
+
+
