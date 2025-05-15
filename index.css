@@ -257,8 +257,6 @@ nav a.active {
   cursor: pointer;
 }
 
-
-
 .footer {
   background-color: #2f3f57;
   color: white;
@@ -281,3 +279,52 @@ nav a.active {
 }
 
 
+@media (max-width: 768px) {
+  .gabung-box {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    top: 40px; /* sedikit naik, menyesuaikan ruang */
+  }
+
+  .gabung-text h2 {
+    font-size: 1.3rem;
+  }
+
+  .btn-gabung {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+   .footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .footer-left, .footer-mid, .footer-right {
+    max-width: 100%;
+  }
+  .gabung-box {
+    max-width: 90%;
+    padding: 1rem;
+    top: 30px;
+  }
+
+  .gabung-text h2 {
+    font-size: 1.1rem;
+  }
+
+  .gabung-text p {
+    font-size: 0.95rem;
+  }
+
+  .btn-gabung {
+    font-size: 0.95rem;
+  }
+}
