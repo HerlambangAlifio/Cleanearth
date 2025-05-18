@@ -4,9 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
+    <link rel="stylesheet" href="login.css">
 </head>
 <body>
-    <h1 align="center">LOGIN 
-    </h1>
+    <div class="login-container">
+        <h1>LOGIN</h1>
+
+        <form action="index.html" method="post" enctype="multipart/form-data">
+            <label for="email">Email:</label><br>
+            <input type="email" name="email" required><br>
+
+            <label for="password">Password:</label><br>
+            <input type="password" name="password" required><br>
+
+            <div class="checkbox-group">
+                <input type="checkbox" name="ingat" value="1">
+                <label for="remember">Ingatkan saya!</label>
+            </div>
+
+            <input type="submit" value="Login">
+        </form>
+
+        <p>Belum punya akun? <a href="daftar.html">Daftar</a></p>
+    </div>
+
+
 </body>
 </html>
