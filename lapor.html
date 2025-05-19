@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lapor Tempat Kotor</title>
+    <link rel="stylesheet" href="lapor.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <a href="index.html" class="logo">🌍 CleanEarth</a>
+        <nav>
+            <ul>
+                <li><a href="kegiatan.html">Kegiatan</a></li>
+                <li><a href="tips.html">Tips & Trik</a></li>
+                <li><a href="dokumentasi.html">Dokumentasi</a></li>
+                <li><a href="sertifikat.html">Sertifikat</a></li>
+            </ul>
+        </nav>
+        <button class="login-btn">Login</button>
+    </header>
+
+    <!-- Isi -->
+    <section class="lapor-section">
+  <h1>Lapor Tempat Kotor</h1>
+  <p>Laporkan lokasi yang perlu dibersihkan agar tim CleanEarth bisa segera bertindak!</p>
+
+  <form class="lapor-form">
+    <label>📍 Nama Lokasi</label>
+    <input type="text" placeholder="Contoh: Jl. Melati RT 3 RW 5, Semarang" required>
+
+    <label>🌍 Tautan Google Maps (opsional)</label>
+    <input type="url" placeholder="https://goo.gl/maps/...">
+
+    <label>🗑 Jenis Sampah / Masalah</label>
+    <div class="checkbox-group">
+      <label><input type="checkbox"> Sampah Plastik</label>
+      <label><input type="checkbox"> TPS Liar</label>
+      <label><input type="checkbox"> Limbah Cair</label>
+      <label><input type="checkbox"> Lainnya</label>
+    </div>
+
+    <label>📝 Deskripsi</label>
+    <textarea rows="4" placeholder="Jelaskan kondisi lokasi..."></textarea>
+
+    <label>📷 Upload Gambar (max 3)</label>
+    <input type="file" accept="image/*" multiple>
+
+    <label>👤 Nama Anda (Wajib di isi)</label>
+    <input type="text" placeholder="Nama Anda" required>
+
+    <label>📞 Kontak (Wajib di isi)</label>
+    <input type="text" placeholder="Whatsapp / Email yang bisa dihubungi" required>
+
+    <button type="submit">Kirim Laporan</button>
+    
+     <!-- Success Message -->
+  <div id="laporSuccess" style="display: none; color: green; margin-top: 1rem;">
+  ✅ Laporan berhasil dikirim! Terima kasih telah peduli 💚
+  </div>
+
+  </form>
+</section>
+
+
+
+  <!-- Gabung Bersama Kami -->
+    <section class="footer-wrapper">
+    <div class="gabung-box">
+      <div class="gabung-text">
+        <h2>Gabung Bersama Kami</h2>
+        <p>Ikuti event bersama tim kami dan jadilah bermanfaat untuk orang lain</p>
+      </div>
+      <a href="form pendaftaran.html" class="btn-gabung">Gabung Sekarang</a>
+    </div>
+  </section>
+
+<!-- Footer -->
+ <footer class="footer">
+    <div class="footer-left">
+      <h1><span class="logo-icon">🌍</span> CleanEarth</h1>
+      <p>Ciptakan Bumi Sehat untuk Masyarakat</p>
+    </div>
+    <div class="footer-mid">
+      <h4>Hubungi Kami</h4>
+      <p>WhatsApp : 0851 9812 3197</p>
+      <p>Email : cleanearth@gmail.com</p>
+    </div>
+    <div class="footer-right">
+      <h4>Media Sosial</h4>
+      <p>Instagram : @cleanearth__</p>
+      <p>Tiktok : CleanEarthhh</p>
+    </div>
+  </footer>
+    
+  <script src="lapor.js"></script>
+</body>
+</html>
