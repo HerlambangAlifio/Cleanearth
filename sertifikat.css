@@ -9,6 +9,40 @@
     background-color: #f5f8fc;
     color: #1e1e1e;
   }
+
+  .modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  text-align: center;
+  padding-top: 60px;
+}
+
+.modal:target {
+  display: block;
+}
+
+.modal-content {
+  max-width: 40%;
+  border-radius: 12px;
+}
+
+.close {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  color: white;
+  font-size: 36px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+
   
   /* Navbar */
 header {
@@ -116,12 +150,12 @@ header {
   }
   
   .lihat-button {
-    background-color: white;
-    border: 1px solid #ccc;
-    padding: 8px 16px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
+   background-color: #2c3e50; /* Sesuaikan dengan tips.css */
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem; /* Sesuaikan dengan tips.css */
+  border: none;
+  cursor: pointer;
   }
   
   .footer-wrapper {
