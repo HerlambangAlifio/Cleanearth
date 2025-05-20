@@ -11,6 +11,53 @@ body {
   color: #1e1e1e;
 }
 
+/* Navbar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Agar navbar lebih menonjol */
+  background-color: #f0f4f9; /* Sesuaikan dengan tips.css */
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.logo {
+  text-decoration: none;
+  color: #1e2d3b; /* Sama dengan warna logo di kegiatan.css */
+  font-weight: bold; /* Sama dengan kegiatan.css */
+  font-size: 18px;
+}
+
+nav ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+nav a {
+  text-decoration: none;
+  color: #1e2d3b; /* Sama dengan kegiatan.css */
+  font-weight: bold; /* Sama dengan kegiatan.css */
+  font-size: 500;
+  padding: 4px;
+}
+
+
+nav a.active {
+  font-weight: bold; /* Sesuaikan dengan tips.css */
+  border-bottom: 2px solid #1e2d3b; /* Sesuaikan dengan tips.css */
+}
+
+/* Login Button */
+.login-btn {
+  background-color: #2c3e50; /* Sesuaikan dengan tips.css */
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem; /* Sesuaikan dengan tips.css */
+  border: none;
+  cursor: pointer;
+}
 .hero {
   text-align: center;
   padding: 40px 20px 20px;
@@ -36,10 +83,13 @@ body {
 
 .gallery img {
   width: 100%;
-  border-radius: 12px;
-  object-fit: cover;
   height: 250px;
+  object-fit: cover;
+  object-position: center; /* Tambahan untuk pastikan crop fokus di tengah */
+  border-radius: 12px;
+  display: block; /* Hindari whitespace di bawah gambar */
 }
+
 
 .cta {
   margin: 40px 50px;

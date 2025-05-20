@@ -1,69 +1,207 @@
-body {
-  font-family: Arial, sans-serif;
-  background: #f4f4f4;
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-/* Modal Styling */
-.modal {
+body {
+  background: #f9fbfc;
+  color: #2c3e50;
+}
+
+.navbar {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px 40px;
+  background-color: #f0f4f9;
+  border-bottom: 1px solid #e0e0e0;
 }
 
-.modal-content {
-  background: white;
-  padding: 30px;
-  border-radius: 10px;
-  width: 90%;
-  max-width: 500px;
-  position: relative;
+.navbar .logo {
+  font-weight: bold;
+  font-size: 18px;
+  color: #1e2d3b;
+  text-decoration: none;
 }
 
-.modal-content h2 {
-  margin-top: 0;
+.navbar nav ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
 }
 
-label {
+.navbar nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.navbar nav ul li a.active {
+  font-weight: bold;
+  border-bottom: 2px solid #333;
+}
+
+.login-btn {
+  background: #2c3e50;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.gabung-section {
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #f9fbff;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.gabung-section h1 {
+  text-align: center;
+  color: #2f3f57;
+  margin-bottom: 0.5rem;
+}
+
+.gabung-section p {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+.gabung-form label {
   display: block;
-  margin-top: 15px;
-  margin-bottom: 5px;
+  margin-top: 1rem;
+  font-weight: 500;
+  color: #2f3f57;
+}
+
+.gabung-form input[type="text"],
+.gabung-form select,
+.gabung-form textarea {
+  width: 100%;
+  padding: 0.7rem;
+  margin-top: 0.4rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.gabung-form button {
+  margin-top: 2rem;
+  background-color: #2f3f57;
+  color: white;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.gabung-form button:hover {
+  background-color: #1e2c3f;
+}
+
+/* Bagian Footer */
+
+.footer-wrapper {
+  position: relative;
+  background-color: #f8fbff;
+  margin-top: 3rem;
+  
+}
+
+.gabung-box {
+  max-width: 80%;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 16px;
+  padding: 2rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  position: relative;
+  top: 60px; /* Naik ke atas */
+}
+
+.gabung-text h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #2f3f57;
   font-weight: bold;
 }
 
-input,
-select {
-  width: 100%;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
+.gabung-text p {
+  margin-top: 0.3rem;
+  color: #333;
 }
 
-button {
-  margin-top: 20px;
-  width: 100%;
-  padding: 12px;
-  background-color: #225c94;
-  color: white;
+.btn-gabung {
+  background-color: #2f3f57;
+  color: rgb(255, 255, 255);
   border: none;
-  border-radius: 8px;
-  font-size: 16px;
+  padding: 0.7rem 1.5rem;
+  border-radius: 10px;
+  font-weight: bold;
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #1a4a79;
+
+
+.footer {
+  background-color: #2f3f57;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  padding: 5rem 2rem 2rem 2rem;
+  flex-wrap: wrap;
 }
 
-.close {
-  position: absolute;
-  top: 15px;
-  right: 20px;
+.footer h4 {
+  margin-bottom: 0.5rem;
+}
+
+.footer-left, .footer-mid, .footer-right {
+  max-width: 300px;
+}
+
+.logo-icon {
   font-size: 24px;
-  cursor: pointer;
 }
+
+@media (max-width: 480px) {
+   .footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .footer-left, .footer-mid, .footer-right {
+    max-width: 100%;
+  }
+  .gabung-box {
+    max-width: 90%;
+    padding: 1rem;
+    top: 30px;
+  }
+
+  .gabung-text h2 {
+    font-size: 1.1rem;
+  }
+
+  .gabung-text p {
+    font-size: 0.95rem;
+  }
+
+  .btn-gabung {
+    font-size: 0.95rem;
+  }
+}
+

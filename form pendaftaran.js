@@ -1,9 +1,17 @@
-document.getElementById("closeModal").addEventListener("click", () => {
-  document.getElementById("eventModal").style.display = "none";
-});
+const form = document.querySelector('.lapor-form');
+const successMessage = document.getElementById('laporSuccess');
 
-document.getElementById("eventForm").addEventListener("submit", function (e) {
-  e.preventDefault();
-  alert("Pendaftaran berhasil dikirim!");
-  this.reset(); // Kosongkan form
+form.addEventListener('submit', function(e) {
+  e.preventDefault(); // Mencegah reload
+
+  form.reset(); // Reset form
+  successMessage.style.display = 'block';
+
+  // Scroll agar pesan terlihat
+  successMessage.scrollIntoView({ behavior: 'smooth' });
+
+  // Setelah 5 detik, sembunyikan pesan
+  setTimeout(() => {
+    successMessage.style.display = 'none';
+  }, 5000);
 });

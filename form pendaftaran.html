@@ -2,38 +2,87 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Form Pendaftaran Event</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Form Kesehatan</title>
   <link rel="stylesheet" href="form pendaftaran.css" />
-   <script src="form pendaftaran.js"></script>
 </head>
 <body>
-  <div class="modal" id="eventModal">
-    <div class="modal-content">
-      <span class="close" id="closeModal">&times;</span>
-      <h2>Form Pendaftaran Event</h2>
-      <form id="eventForm">
-        <label for="nama">Nama Lengkap*</label>
-        <input type="text" id="nama" name="nama" placeholder="Ketik nama anda" required />
 
-        <label for="gender">Jenis Kelamin*</label>
-        <select id="gender" name="gender" required>
-          <option value="">Pilih jenis kelamin</option>
-          <option value="Laki-laki">Laki-laki</option>
-          <option value="Perempuan">Perempuan</option>
-        </select>
+   <!-- Navbar -->
+    <header class="navbar">
+        <a href="index.html" class="logo">🌍 CleanEarth</a>
+        <nav>
+            <ul>
+                <li><a href="kegiatan.html">Kegiatan</a></li>
+                <li><a href="tips.html">Tips & Trik</a></li>
+                <li><a href="dokumentasi.html">Dokumentasi</a></li>
+                <li><a href="sertifikat.html">Sertifikat</a></li>
+            </ul>
+        </nav>
+       <a href="login.html" class="login-btn">Login</a>
+    </header>
 
-        <label for="domisili">Domisili*</label>
-        <input type="text" id="domisili" name="domisili" placeholder="Ketik domisili" required />
 
-        <label for="penyakit">Riwayat penyakit</label>
-        <input type="text" id="penyakit" name="penyakit" placeholder="Tambahkan jika ada" />
+  <section class="gabung-section">
+    <h1>Form registrasi event</h1>
+    <p>Silakan isi data anda agar bisa mengikuti event yang sudah kami buat.</p>
 
-        <button type="submit">Daftar Sekarang</button>
-      </form>
+    <form class="gabung-form">
+      <label>👤 Nama Lengkap</label>
+      <input type="text" placeholder="Masukkan nama lengkap" required />
+
+      <label>⚧ Jenis Kelamin</label>
+      <select required>
+        <option value="">Pilih</option>
+        <option value="Laki-laki">Laki-laki</option>
+        <option value="Perempuan">Perempuan</option>
+        <option value="Lainnya">Lainnya</option>
+      </select>
+
+      <label>🏠 Domisili</label>
+      <input type="text" placeholder="Contoh: Jakarta Selatan" required />
+
+      <label>📝 Riwayat Penyakit</label>
+      <textarea rows="4" placeholder="Contoh: Asma, Diabetes, dll."></textarea>
+
+      <button type="submit">Kirim Data</button>
+
+      <div id="gabungSuccess" style="display: none; color: green; margin-top: 1rem;">
+        ✅ Data berhasil dikirim! Terima kasih 💚
+      </div>
+    </form>
+  </section>
+
+  <!-- Gabung Bersama Kami -->
+    <section class="footer-wrapper">
+    <div class="gabung-box">
+      <div class="gabung-text">
+        <h2>Gabung Bersama Kami</h2>
+        <p>Ikuti event bersama tim kami dan jadilah bermanfaat untuk orang lain</p>
+      </div>
+      <a href="form pendaftaran.html" class="btn-gabung">Gabung Sekarang</a>
     </div>
-  </div>
+  </section>
 
-  <script src="script.js"></script>
+
+  <!-- Footer -->
+ <footer class="footer">
+    <div class="footer-left">
+      <h1><span class="logo-icon">🌍</span> CleanEarth</h1>
+      <p>Ciptakan Bumi Sehat untuk Masyarakat</p>
+    </div>
+    <div class="footer-mid">
+      <h4>Hubungi Kami</h4>
+      <p>WhatsApp : 0851 9812 3197</p>
+      <p>Email : cleanearth@gmail.com</p>
+    </div>
+    <div class="footer-right">
+      <h4>Media Sosial</h4>
+      <p>Instagram : @cleanearth__</p>
+      <p>Tiktok : CleanEarthhh</p>
+    </div>
+  </footer>
+
+  <script src="form pendaftaran.js"></script>
 </body>
 </html>
