@@ -1,17 +1,16 @@
-const form = document.querySelector('.lapor-form');
-const successMessage = document.getElementById('laporSuccess');
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector('.gabung-form');
+  const successMessage = document.getElementById('gabungSuccess');
 
-form.addEventListener('submit', function(e) {
-  e.preventDefault(); // Mencegah reload
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    form.reset();
+    successMessage.style.display = 'block';
+    successMessage.scrollIntoView({ behavior: 'smooth' });
 
-  form.reset(); // Reset form
-  successMessage.style.display = 'block';
-
-  // Scroll agar pesan terlihat
-  successMessage.scrollIntoView({ behavior: 'smooth' });
-
-  // Setelah 5 detik, sembunyikan pesan
-  setTimeout(() => {
-    successMessage.style.display = 'none';
-  }, 5000);
+    setTimeout(() => {
+      successMessage.style.display = 'none';
+      window.location.href = 'index.html';
+    }, 5000);
+  });
 });
