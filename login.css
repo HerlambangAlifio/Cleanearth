@@ -7,7 +7,7 @@
 }
 
 body {
-    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    background: linear-gradient(135deg, #ffffff, #2c3b4f);
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -47,7 +47,7 @@ input[type="password"] {
 
 input[type="email"]:focus,
 input[type="password"]:focus {
-    border-color: #0072ff;
+    border-color: #222e3d;
     outline: none;
 }
 
@@ -63,7 +63,7 @@ input[type="password"]:focus {
 
 input[type="submit"] {
     width: 100%;
-    background-color: #0072ff;
+    background-color: #2b384a;
     color: white;
     padding: 12px;
     border: none;
@@ -74,7 +74,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #005fcc;
+    background-color: #2d3844;
 }
 
 p {
@@ -84,7 +84,7 @@ p {
 }
 
 a {
-    color: #0072ff;
+    color: #217ae7;
     text-decoration: none;
 }
 
