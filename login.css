@@ -1,93 +1,207 @@
-
 * {
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 body {
-    background: linear-gradient(135deg, #ffffff, #2c3b4f);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
+  background: #f9fbfc;
+  color: #2c3e50;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #f0f4f9;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.navbar .logo {
+  font-weight: bold;
+  font-size: 18px;
+  color: #1e2d3b;
+  text-decoration: none;
+}
+
+.navbar nav ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.navbar nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.navbar nav ul li a.active {
+  font-weight: bold;
+  border-bottom: 2px solid #333;
+}
+
+.login-btn {
+  background: #2c3e50;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.gabung-section {
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #f9fbff;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.gabung-section h1 {
+  text-align: center;
+  color: #2f3f57;
+  margin-bottom: 0.5rem;
+}
+
+.gabung-section p {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+.gabung-form label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 500;
+  color: #2f3f57;
+}
+
+.gabung-form input[type="text"],
+.gabung-form select,
+.gabung-form textarea {
+  width: 100%;
+  padding: 0.7rem;
+  margin-top: 0.4rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.gabung-form button {
+  margin-top: 2rem;
+  background-color: #2f3f57;
+  color: white;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.gabung-form button:hover {
+  background-color: #1e2c3f;
+}
+
+/* Bagian Footer */
+
+.footer-wrapper {
+  position: relative;
+  background-color: #f8fbff;
+  margin-top: 3rem;
+  
+}
+
+.gabung-box {
+  max-width: 80%;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 16px;
+  padding: 2rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  position: relative;
+  top: 60px; /* Naik ke atas */
+}
+
+.gabung-text h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #2f3f57;
+  font-weight: bold;
+}
+
+.gabung-text p {
+  margin-top: 0.3rem;
+  color: #333;
+}
+
+.btn-gabung {
+  background-color: #2f3f57;
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+
+.footer {
+  background-color: #2f3f57;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  padding: 5rem 2rem 2rem 2rem;
+  flex-wrap: wrap;
+}
+
+.footer h4 {
+  margin-bottom: 0.5rem;
+}
+
+.footer-left, .footer-mid, .footer-right {
+  max-width: 300px;
+}
+
+.logo-icon {
+  font-size: 24px;
+}
+
+@media (max-width: 480px) {
+   .footer {
+    flex-direction: column;
     align-items: center;
-}
-
-.login-container {
-    background-color: white;
-    padding: 40px 30px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    width: 100%;
-    max-width: 400px;
-}
-
-.login-container h1 {
     text-align: center;
-    margin-bottom: 30px;
-    color: #333;
+    gap: 2rem;
+  }
+
+  .footer-left, .footer-mid, .footer-right {
+    max-width: 100%;
+  }
+  .gabung-box {
+    max-width: 90%;
+    padding: 1rem;
+    top: 30px;
+  }
+
+  .gabung-text h2 {
+    font-size: 1.1rem;
+  }
+
+  .gabung-text p {
+    font-size: 0.95rem;
+  }
+
+  .btn-gabung {
+    font-size: 0.95rem;
+  }
 }
 
-label {
-    font-weight: 500;
-    color: #333;
-}
-
-input[type="email"],
-input[type="password"] {
-    width: 100%;
-    padding: 12px;
-    margin-top: 8px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    transition: 0.3s;
-}
-
-input[type="email"]:focus,
-input[type="password"]:focus {
-    border-color: #222e3d;
-    outline: none;
-}
-
-.checkbox-group {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.checkbox-group input {
-    margin-right: 10px;
-}
-
-input[type="submit"] {
-    width: 100%;
-    background-color: #2b384a;
-    color: white;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-input[type="submit"]:hover {
-    background-color: #2d3844;
-}
-
-p {
-    text-align: center;
-    margin-top: 20px;
-    color: #333;
-}
-
-a {
-    color: #217ae7;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
