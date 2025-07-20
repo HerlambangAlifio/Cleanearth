@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard User - Clean Earth</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap">
+  <style>
+    :root {
+      --primary-bg: #ffffff;
+      --secondary-bg: #f8f9fa;
+      --sidebar-bg: #2c3e50;
+      --text-primary: #2c3e50;
+      --text-secondary: #6c757d;
+      --text-light: #ffffff;
+      --accent-color: #3498db;
+      --success-color: #27ae60;
+      --warning-color: #f39c12;
+      --danger-color: #e74c3c;
+      --border-color: #e9ecef;
+      --hover-bg: #34495e;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      background: var(--secondary-bg);
+      font-family: 'Inter', sans-serif;
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+    }
+    
+    .sidebar {
+      width: 280px;
+      background: var(--sidebar-bg);
+      color: var(--text-light);
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 1000;
+      box-shadow: var(--shadow);
+    }
+    
+    .sidebar-header {
+      padding: 32px 24px 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .sidebar-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    
+    .sidebar-subtitle {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+    
+    .sidebar-menu {
+      flex: 1;
+      padding: 24px 0;
+    }
+    
+    .menu-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 24px;
+      color: var(--text-light);
+      text-decoration: none;
+      transition: all 0.2s;
+      border-left: 3px solid transparent;
+    }
+    
+    .menu-item:hover, .menu-item.active {
+      background: var(--hover-bg);
+      border-left-color: var(--accent-color);
+    }
+    
+    .menu-item svg {
+      width: 20px;
+      height: 20px;
+    }
+    
+    .sidebar-footer {
+      padding: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      background: var(--accent-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+    
+    .user-details h4 {
+      font-size: 0.95rem;
+      margin-bottom: 2px;
+    }
+    
+    .user-details p {
+      font-size: 0.8rem;
+      opacity: 0.8;
+    }
+    
+    .logout-btn {
+      width: 100%;
+      background: rgba(231, 76, 60, 0.1);
+      color: #e74c3c;
+      border: 1px solid rgba(231, 76, 60, 0.3);
+      padding: 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 0.9rem;
+    }
+    
+    .logout-btn:hover {
+      background: #e74c3c;
+      color: white;
+    }
+    
+    .main-content {
+      margin-left: 280px;
+      flex: 1;
+      padding: 32px;
+    }
+    
+    .page-header {
+      margin-bottom: 32px;
+    }
+    
+    .page-title {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    
+    .page-subtitle {
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+    
+    .stat-card {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      border-left: 4px solid var(--accent-color);
+    }
+    
+    .stat-card.success {
+      border-left-color: var(--success-color);
+    }
+    
+    .stat-card.warning {
+      border-left-color: var(--warning-color);
+    }
+    
+    .stat-card.danger {
+      border-left-color: var(--danger-color);
+    }
+    
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    
+    .stat-label {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+    
+    .content-section {
+      background: white;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    
+    .section-header {
+      padding: 24px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    
+    .section-subtitle {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+    
+    .event-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 24px;
+      padding: 24px;
+    }
+    
+    .event-card {
+      background: white;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    .event-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+    
+    .event-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    
+    .event-content {
+      padding: 20px;
+    }
+    
+    .event-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text-primary);
+    }
+    
+    .event-description {
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    
+    .event-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 16px;
+      font-size: 0.85rem;
+    }
+    
+    .event-detail {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-secondary);
+    }
+    
+    .event-detail svg {
+      width: 14px;
+      height: 14px;
+    }
+    
+    .event-status {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+    
+    .status-upcoming {
+      background: #e3f2fd;
+      color: #1976d2;
+    }
+    
+    .status-ongoing {
+      background: #e8f5e8;
+      color: #388e3c;
+    }
+    
+    .status-completed {
+      background: #f3e5f5;
+      color: #7b1fa2;
+    }
+    
+    .status-cancelled {
+      background: #ffebee;
+      color: #d32f2f;
+    }
+    
+    .event-actions {
+      display: flex;
+      gap: 8px;
+    }
+    
+    .btn {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .btn-primary {
+      background: var(--accent-color);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background: #2980b9;
+    }
+    
+    .btn-secondary {
+      background: var(--secondary-bg);
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+    }
+    
+    .btn-secondary:hover {
+      background: #e9ecef;
+    }
+    
+    .btn-success {
+      background: var(--success-color);
+      color: white;
+    }
+    
+    .btn-success:hover {
+      background: #229954;
+    }
+    
+    .loading {
+      text-align: center;
+      padding: 40px;
+      color: var(--text-secondary);
+    }
+    
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text-secondary);
+    }
+    
+    .empty-state svg {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 16px;
+      opacity: 0.5;
+    }
+    
+    .registration-status {
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      margin-left: 8px;
+    }
+    
+    .reg-status-pending {
+      background: #fff3cd;
+      color: #856404;
+    }
+    
+    .reg-status-approved {
+      background: #d4edda;
+      color: #155724;
+    }
+    
+    .reg-status-rejected {
+      background: #f8d7da;
+      color: #721c24;
+    }
+    
+    /* Profile Card Professional Style */
+    .profile-card {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 6px 24px rgba(44,62,80,0.10);
+      padding: 40px 32px;
+      min-width: 350px;
+      max-width: 400px;
+      margin: 40px 0;
+      text-align: center;
+      position: relative;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .profile-card:hover {
+      box-shadow: 0 12px 32px rgba(44,62,80,0.18);
+      transform: translateY(-4px) scale(1.02);
+    }
+    .profile-avatar-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 24px;
+      position: relative;
+    }
+    .profile-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: #e3eafc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.7rem;
+      font-weight: 700;
+      color: #3498db;
+      box-shadow: 0 2px 12px rgba(44,62,80,0.13);
+      overflow: hidden;
+      border: 4px solid #3498db;
+      position: relative;
+      transition: box-shadow 0.3s, border 0.3s;
+    }
+    .profile-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+    }
+    .profile-badge {
+      position: absolute;
+      bottom: 0;
+      right: -8px;
+      background: linear-gradient(90deg, #27ae60 60%, #2ecc71 100%);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(39,174,96,0.15);
+      letter-spacing: 0.5px;
+      z-index: 2;
+      border: 2px solid #fff;
+    }
+    .profile-info-list {
+      text-align: left;
+      margin-top: 18px;
+    }
+    .profile-info-list .info-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 14px;
+      font-size: 1rem;
+      color: #2c3e50;
+    }
+    .profile-info-list .info-row svg {
+      margin-right: 10px;
+      min-width: 20px;
+      color: #3498db;
+    }
+    .profile-card .btn.btn-primary {
+      padding: 10px 28px;
+      font-size: 1rem;
+      border-radius: 8px;
+      margin-top: 18px;
+    }
+    
+    @media (max-width: 768px) {
+      .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s;
+      }
+      
+      .sidebar.show {
+        transform: translateX(0);
+      }
+      
+      .main-content {
+        margin-left: 0;
+        padding: 20px;
+      }
+      
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .event-grid {
+        grid-template-columns: 1fr;
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-title">Clean Earth</div>
+      <div class="sidebar-subtitle">User Dashboard</div>
+    </div>
+    
+    <div class="sidebar-menu">
+      <a href="#" class="menu-item active" onclick="showSection('dashboard')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        Dashboard
+      </a>
+      <a href="#" class="menu-item" onclick="showSection('events')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        Event Tersedia
+      </a>
+      <a href="#" class="menu-item" onclick="showSection('my-events')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 12l2 2 4-4"></path>
+          <path d="M21 12c-1 0-2-1-2-2s1-2 2-2 2 1 2 2-1 2-2 2z"></path>
+          <path d="M3 12c1 0 2-1 2-2s-1-2-2-2-2 1-2 2 1 2 2 2z"></path>
+          <path d="M12 3c0 1-1 2-2 2s-2-1-2-2 1-2 2-2 2 1 2 2z"></path>
+          <path d="M12 21c0-1 1-2 2-2s2 1 2 2-1 2-2 2-2-1-2-2z"></path>
+        </svg>
+        Event Saya
+      </a>
+      <a href="#" class="menu-item" onclick="showSection('profile')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+        Profile
+      </a>
+      
+      <a href="edit_profile.html" class="menu-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+          <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+        </svg>
+        Edit Profile
+      </a>
+    </div>
+    
+    <div class="sidebar-footer">
+      <div class="user-info">
+        <div class="user-avatar" id="userAvatar">U</div>
+        <div class="user-details">
+          <h4 id="userName">User</h4>
+          <p>Role: User</p>
+        </div>
+      </div>
+      <button class="logout-btn" onclick="logout()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+          <polyline points="16 17 21 12 16 7"></polyline>
+          <line x1="21" y1="12" x2="9" y2="12"></line>
+        </svg>
+        Logout
+      </button>
+    </div>
+  </div>
+  
+  <div class="main-content">
+    <!-- Dashboard Section -->
+    <div id="dashboard-section">
+      <div class="page-header">
+        <h1 class="page-title">Dashboard Report</h1>
+        <p class="page-subtitle">Selamat datang kembali! Berikut ringkasan aktivitas Anda.</p>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number" id="totalEvents">0</div>
+          <div class="stat-label">Total Event Tersedia</div>
+        </div>
+        <div class="stat-card success">
+          <div class="stat-number" id="joinedEvents">0</div>
+          <div class="stat-label">Event Yang Diikuti</div>
+        </div>
+        <div class="stat-card warning">
+          <div class="stat-number" id="pendingEvents">0</div>
+          <div class="stat-label">Menunggu Konfirmasi</div>
+        </div>
+        <div class="stat-card danger">
+          <div class="stat-number" id="approvedEvents">0</div>
+          <div class="stat-label">Event Diterima</div>
+        </div>
+        <div class="stat-card" style="border-left-color: #9b59b6;">
+          <div class="stat-number" id="completedEvents">0</div>
+          <div class="stat-label">Event Selesai</div>
+        </div>
+      </div>
+      
+      <div class="content-section">
+        <div class="section-header">
+          <h2 class="section-title">Event Terbaru</h2>
+          <p class="section-subtitle">Event-event terbaru yang bisa Anda ikuti</p>
+        </div>
+        <div id="recentEvents" class="event-grid">
+          <div class="loading">Memuat event...</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Events Section -->
+    <div id="events-section" style="display: none;">
+      <div class="page-header">
+        <h1 class="page-title">Event Tersedia</h1>
+        <p class="page-subtitle">Daftar semua event yang bisa Anda ikuti</p>
+      </div>
+      
+      <div class="content-section">
+        <div id="allEvents" class="event-grid">
+          <div class="loading">Memuat event...</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- My Events Section -->
+    <div id="my-events-section" style="display: none;">
+      <div class="page-header">
+        <h1 class="page-title">Event Saya</h1>
+        <p class="page-subtitle">Event yang telah Anda ikuti</p>
+      </div>
+      
+      <div class="content-section">
+        <div id="myEvents" class="event-grid">
+          <div class="loading">Memuat event...</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Profile Section -->
+    <div id="profile-section" style="display: none;">
+      <div class="page-header">
+        <h1 class="page-title">Profile</h1>
+        <p class="page-subtitle">Informasi akun Anda</p>
+      </div>
+      <div class="content-section" style="display: flex; justify-content: center; align-items: flex-start; background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%); min-height: 400px;">
+        <div class="profile-card">
+          <div class="profile-avatar-wrapper">
+            <div id="profileAvatar" class="profile-avatar">
+              <!-- Avatar image or initial -->
+            </div>
+            <div class="profile-badge">User Aktif</div>
+            <div style="margin-top: 12px;">
+              <span id="profileUsername" style="font-size: 1.3rem; font-weight: 600; color: #2c3e50;">-</span>
+              <div style="font-size: 0.95rem; color: #6c757d;">@<span id="profileEmail">-</span></div>
+            </div>
+          </div>
+          <div class="profile-info-list">
+            <div class="info-row">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="8"/></svg>
+              <span><strong>Role:</strong> <span id="profileRole">-</span></span>
+            </div>
+            <div class="info-row">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/><path d="M6 18v-1c0-2.21 3.58-4 8-4s8 1.79 8 4v1"/></svg>
+              <span><strong>Nama Lengkap:</strong> <span id="profileNamaLengkap">-</span></span>
+            </div>
+            <div class="info-row">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span><strong>Alamat:</strong> <span id="profileAlamat">-</span></span>
+            </div>
+            <div class="info-row">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92V19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-2.08a2 2 0 0 1 .84-1.63l8-5.2a2 2 0 0 1 2.32 0l8 5.2a2 2 0 0 1 .84 1.63z"/><circle cx="12" cy="7" r="4"/></svg>
+              <span><strong>No HP:</strong> <span id="profileNoHp">-</span></span>
+            </div>
+          </div>
+          <a href="edit_profile.html" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" style="vertical-align: middle; margin-right: 6px;">
+              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+            </svg>
+            Edit Profile
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    // Check authentication
+    (function() {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        window.location.href = 'login.html';
+        return;
+      }
+      
+      try {
+        const payload = JSON.parse(atob(token.split('.')[1].replace(/-/g, '+').replace(/_/g, '/')));
+        if (payload.role !== 'user') {
+          alert('Anda tidak memiliki akses ke halaman ini');
+          localStorage.removeItem('token');
+          window.location.href = 'login.html';
+          return;
+        }
+        
+        // Set user info dari JWT token
+        const userName = document.getElementById('userName');
+        const userAvatar = document.getElementById('userAvatar');
+        const profileUsername = document.getElementById('profileUsername');
+        const profileEmail = document.getElementById('profileEmail');
+        const profileRole = document.getElementById('profileRole');
+        
+        // Gunakan username sebagai fallback
+        const displayName = payload.username || 'User';
+        userName.textContent = displayName;
+        userAvatar.textContent = displayName.charAt(0).toUpperCase();
+        profileUsername.textContent = displayName;
+        
+        if (payload.email) {
+          profileEmail.textContent = payload.email;
+        }
+        
+        profileRole.textContent = payload.role || 'user';
+        
+        // Load data user lengkap dari database
+        loadUserProfile();
+      } catch (error) {
+        alert('Token tidak valid');
+        localStorage.removeItem('token');
+        window.location.href = 'login.html';
+      }
+    })();
+    
+    // Navigation
+    function showSection(sectionName) {
+      // Hide all sections
+      document.getElementById('dashboard-section').style.display = 'none';
+      document.getElementById('events-section').style.display = 'none';
+      document.getElementById('my-events-section').style.display = 'none';
+      document.getElementById('profile-section').style.display = 'none';
+      
+      // Remove active class from all menu items
+      document.querySelectorAll('.menu-item').forEach(item => {
+        item.classList.remove('active');
+      });
+      
+      // Show selected section
+      document.getElementById(sectionName + '-section').style.display = 'block';
+      
+      // Add active class to clicked menu item
+      event.target.classList.add('active');
+      
+      // Load data based on section - hanya load sekali
+      switch(sectionName) {
+        case 'dashboard':
+          if (!dashboardLoaded) {
+            loadDashboardData();
+          }
+          break;
+        case 'events':
+          loadAllEvents();
+          break;
+        case 'my-events':
+          loadMyEvents();
+          break;
+        case 'profile':
+          // Profile data sudah di-load saat inisialisasi
+          break;
+      }
+    }
+    
+    
+    // Debounce function untuk mencegah multiple calls
+    function debounce(func, wait) {
+      let timeout;
+      return function executedFunction(...args) {
+        const later = () => {
+          clearTimeout(timeout);
+          func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+      };
+    }
+    
+    // Debounced version of loadDashboardData
+    const debouncedLoadDashboard = debounce(loadDashboardData, 300);
+
+    // Load user profile data dari database
+    async function loadUserProfile() {
+      try {
+        const response = await fetch('http://localhost:5000/api/user/me', {
+          headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+          }
+        });
+        
+        if (response.ok) {
+          const userData = await response.json();
+          // Update profile elements
+          const userName = document.getElementById('userName');
+          const userAvatar = document.getElementById('userAvatar');
+          const profileAvatar = document.getElementById('profileAvatar');
+          const profileUsername = document.getElementById('profileUsername');
+          const profileEmail = document.getElementById('profileEmail');
+          const profileRole = document.getElementById('profileRole');
+          const profileNamaLengkap = document.getElementById('profileNamaLengkap');
+          const profileAlamat = document.getElementById('profileAlamat');
+          const profileNoHp = document.getElementById('profileNoHp');
+          // Update dengan data lengkap dari database
+          userName.textContent = userData.username || 'User';
+          userAvatar.textContent = (userData.username || 'U').charAt(0).toUpperCase();
+          profileUsername.textContent = userData.username || 'User';
+          profileEmail.textContent = userData.email || '-';
+          profileRole.textContent = userData.role || 'user';
+          if (userData.Profile) {
+            profileNamaLengkap.textContent = userData.Profile.nama_lengkap || '-';
+            profileAlamat.textContent = userData.Profile.alamat || '-';
+            profileNoHp.textContent = userData.Profile.no_hp || '-';
+          }
+          // Avatar logic: jika ada gambar, tampilkan gambar, jika tidak tampilkan inisial
+          if (userData.Profile && userData.Profile.foto) {
+            console.log('Foto profil user:', userData.Profile.foto);
+            profileAvatar.innerHTML = `<img src="http://localhost:5000/uploads/${userData.Profile.foto}" alt="Avatar" />`;
+          } else {
+            const initial = (userData.username || 'U').charAt(0).toUpperCase();
+            profileAvatar.innerHTML = initial;
+            profileAvatar.style.background = '#e3eafc';
+            profileAvatar.style.color = '#3498db';
+          }
+          console.log('User profile loaded successfully:', userData);
+        } else {
+          console.error('Failed to load user profile');
+        }
+      } catch (error) {
+        console.error('Error loading user profile:', error);
+      }
+    }
+    
+    // Load dashboard data - tambahkan flag untuk mencegah looping
+    let dashboardLoaded = false;
+    
+    async function loadDashboardData() {
+      if (dashboardLoaded) {
+        console.log('Dashboard already loaded, skipping...');
+        return;
+      }
+      
+      // Prevent multiple simultaneous calls
+      if (window.isLoadingDashboard) {
+        console.log('Dashboard is already loading, skipping...');
+        return;
+      }
+      
+      window.isLoadingDashboard = true;
+      
+      try {
+        console.log('Loading dashboard data...');
+        
+        // Load stats
+        const [eventsRes, myEventsRes] = await Promise.all([
+          fetch('http://localhost:5000/api/event/public'),
+          fetch('http://localhost:5000/api/event/mine', {
+            headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') }
+          })
+        ]);
+        
+        const events = await eventsRes.json();
+        const myEvents = await myEventsRes.json();
+        
+        // Update stats
+        document.getElementById('totalEvents').textContent = events.length;
+        document.getElementById('joinedEvents').textContent = myEvents.length;
+        document.getElementById('pendingEvents').textContent = myEvents.filter(e => e.status === 'pending').length;
+        document.getElementById('approvedEvents').textContent = myEvents.filter(e => e.status === 'approved').length;
+        
+        // Calculate completed events
+        const completedEvents = myEvents.filter(registration => {
+          const event = registration.Event;
+          const eventDate = new Date(event.tanggal);
+          const today = new Date();
+          return eventDate < today && event.status !== 'cancelled';
+        }).length;
+        document.getElementById('completedEvents').textContent = completedEvents;
+        
+        // Load recent events
+        loadRecentEvents(events.slice(0, 3));
+        
+        dashboardLoaded = true;
+        window.isLoadingDashboard = false;
+        console.log('Dashboard data loaded successfully');
+      } catch (error) {
+        console.error('Error loading dashboard data:', error);
+        window.isLoadingDashboard = false;
+      }
+    }
+    
+    // Load recent events
+    function loadRecentEvents(events) {
+      const container = document.getElementById('recentEvents');
+      
+      if (events.length === 0) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <h3>Belum ada event</h3>
+            <p>Event akan muncul di sini</p>
+          </div>
+        `;
+        return;
+      }
+      
+      container.innerHTML = events.map(event => createEventCard(event, false)).join('');
+    }
+    
+    // Load all events
+    async function loadAllEvents() {
+      const container = document.getElementById('allEvents');
+      
+      try {
+        const response = await fetch('http://localhost:5000/api/event/public');
+        const events = await response.json();
+        
+        if (events.length === 0) {
+          container.innerHTML = `
+            <div class="empty-state">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <h3>Belum ada event</h3>
+              <p>Event akan muncul di sini</p>
+            </div>
+          `;
+          return;
+        }
+        
+        container.innerHTML = events.map(event => createEventCard(event, true)).join('');
+      } catch (error) {
+        console.error('Error loading events:', error);
+        container.innerHTML = `
+          <div class="error">
+            <h3>Gagal memuat event</h3>
+            <p>${error.message}</p>
+          </div>
+        `;
+      }
+    }
+    
+    // Load my events
+    async function loadMyEvents() {
+      const container = document.getElementById('myEvents');
+      
+      try {
+        const response = await fetch('http://localhost:5000/api/event/mine', {
+          headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') }
+        });
+        
+        const registrations = await response.json();
+        
+        if (registrations.length === 0) {
+          container.innerHTML = `
+            <div class="empty-state">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <h3>Belum ada event yang diikuti</h3>
+              <p>Daftar ke event untuk melihatnya di sini</p>
+            </div>
+          `;
+          return;
+        }
+        
+        container.innerHTML = registrations.map(registration => createMyEventCard(registration)).join('');
+      } catch (error) {
+        console.error('Error loading my events:', error);
+        container.innerHTML = `
+          <div class="error">
+            <h3>Gagal memuat event</h3>
+            <p>${error.message}</p>
+          </div>
+        `;
+      }
+    }
+    
+    // Generate placeholder image
+    function getPlaceholderImage() {
+      return 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkV2ZW50PC90ZXh0Pjwvc3ZnPg==';
+    }
+    
+    // Create event card
+    function createEventCard(event, showJoinButton = true) {
+      const statusText = {
+        'upcoming': 'Belum Dimulai',
+        'ongoing': 'Sedang Berlangsung',
+        'completed': 'Sudah Selesai',
+        'cancelled': 'Dibatalkan'
+      };
+      
+      const statusClass = `status-${event.status}`;
+      const statusLabel = statusText[event.status] || 'Unknown';
+      
+      // Check if event is completed based on date
+      const eventDateObj = new Date(event.tanggal);
+      const today = new Date();
+      const isCompleted = eventDateObj < today && event.status !== 'cancelled';
+      
+      // Override status if event is completed but status is not set
+      if (isCompleted && event.status === 'upcoming') {
+        statusLabel = 'Sudah Selesai';
+      }
+      
+      const eventDate = new Date(event.tanggal).toLocaleDateString('id-ID', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+      
+      const timeRange = `${event.waktu_mulai} - ${event.waktu_selesai}`;
+      
+      return `
+        <div class="event-card">
+          <img src="http://localhost:5000/uploads/${event.gambar || 'default-event.jpg'}" 
+               alt="${event.judul}" 
+               class="event-image"
+               onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkV2ZW50PC90ZXh0Pjwvc3ZnPg=='">
+          
+          <div class="event-content">
+            <div class="event-status ${statusClass}">${statusLabel}</div>
+            
+            <h3 class="event-title">${event.judul}</h3>
+            <p class="event-description">${event.deskripsi}</p>
+            
+            <div class="event-details">
+              <div class="event-detail">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                ${event.lokasi}
+              </div>
+              <div class="event-detail">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                ${eventDate}
+              </div>
+              <div class="event-detail">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12,6 12,12 16,14"></polyline>
+                </svg>
+                ${timeRange}
+              </div>
+              <div class="event-detail">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+                Kapasitas: ${event.kapasitas}
+              </div>
+            </div>
+            
+            ${showJoinButton && !isCompleted ? `
+              <div class="event-actions">
+                <button class="btn btn-primary" onclick="joinEvent(${event.id})">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="8.5" cy="7" r="4"></circle>
+                    <line x1="20" y1="8" x2="20" y2="14"></line>
+                    <line x1="23" y1="11" x2="17" y2="11"></line>
+                  </svg>
+                  Daftar Event
+                </button>
+              </div>
+            ` : isCompleted ? `
+              <div class="event-actions">
+                <span class="btn btn-secondary" style="cursor: default; opacity: 0.7;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                    <path d="M9 12l2 2 4-4"></path>
+                  </svg>
+                  Event Selesai
+                </span>
+              </div>
+            ` : ''}
+          </div>
+        </div>
+      `;
+    }
+    
+    // Create my event card
+    function createMyEventCard(registration) {
+      const event = registration.Event;
+      const eventStatusText = {
+        'upcoming': 'Belum Dimulai',
+        'ongoing': 'Sedang Berlangsung',
+        'completed': 'Sudah Selesai',
+        'cancelled': 'Dibatalkan'
+      };
+      
+      const regStatusText = {
+        'pending': 'Menunggu Konfirmasi',
+        'approved': 'Diterima',
+        'rejected': 'Ditolak',
+        'cancelled': 'Dibatalkan'
+      };
+      
+      const statusClass = `status-${event.status}`;
+      const eventStatusLabel = eventStatusText[event.status] || 'Unknown';
+      
+      // Check if event is completed based on date
+      const eventDateObj = new Date(event.tanggal);
+      const today = new Date();
+      const isCompleted = eventDateObj < today && event.status !== 'cancelled';
+      
+      // Override status if event is completed but status is not set
+      if (isCompleted && event.status === 'upcoming') {
+        eventStatusLabel = 'Sudah Selesai';
+      }
+      
+      const regStatusClass = `reg-status-${registration.status}`;
+      const regStatusLabel = regStatusText[registration.status] || 'Unknown';
+      
+      const eventDate = new Date(event.tanggal).toLocaleDateString('id-ID', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+      
+      const timeRange = `${event.waktu_mulai} - ${event.waktu_selesai}`;
+      
+      return `
+        <div class="event-card">
+          <img src="http://localhost:5000/uploads/${event.gambar || 'default-event.jpg'}" 
+               alt="${event.judul}" 
+               class="event-image"
+               onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkV2ZW50PC90ZXh0Pjwvc3ZnPg=='">
+          
+          <div class="event-content">
+            <div class="event-status ${statusClass}">
+              ${eventStatusLabel}
+              <span class="registration-status ${regStatusClass}">${regStatusLabel}</span>
+            </div>
+            
+            <h3 class="event-title">${event.judul}</h3>
+            <p class="event-description">${event.deskripsi}</p>
+            
+            <div class="event-details">
+              <div class="event-detail">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                ${event.lokasi}
+              </div>
+              <div class="event-detail">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                ${eventDate}
+              </div>
+              <div class="event-detail">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12,6 12,12 16,14"></polyline>
+                </svg>
+                ${timeRange}
+              </div>
+            </div>
+            
+            ${registration.status === 'pending' ? `
+              <div class="event-actions">
+                <button class="btn btn-danger" onclick="cancelRegistration(${registration.id})">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                  </svg>
+                  Batalkan
+                </button>
+              </div>
+            ` : ''}
+          </div>
+        </div>
+      `;
+    }
+    
+    // Join event
+    async function joinEvent(eventId) {
+      // Redirect ke form pendaftaran dengan eventId
+      window.location.href = `form_pendaftaran_event.html?eventId=${eventId}`;
+    }
+    
+    // Cancel registration
+    async function cancelRegistration(registrationId) {
+      if (!confirm('Yakin ingin membatalkan pendaftaran ini?')) {
+        return;
+      }
+      
+      try {
+        const response = await fetch(`http://localhost:5000/api/event/registrations/${registrationId}/status`, {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+          },
+          body: JSON.stringify({
+            status: 'cancelled'
+          })
+        });
+        
+        const data = await response.json();
+        
+        if (response.ok) {
+          alert('Pendaftaran berhasil dibatalkan');
+          // Reset flag dan reload data
+          dashboardLoaded = false;
+          loadMyEvents(); // Refresh my events
+        } else {
+          alert(data.message || 'Gagal membatalkan pendaftaran');
+        }
+      } catch (error) {
+        console.error('Error cancelling registration:', error);
+        alert('Gagal membatalkan pendaftaran');
+      }
+    }
+    
+    // Logout
+    function logout() {
+      if (confirm('Yakin ingin logout?')) {
+        localStorage.removeItem('token');
+        window.location.href = 'login.html';
+      }
+    }
+    
+    // Load initial data
+    document.addEventListener('DOMContentLoaded', function() {
+      loadDashboardData();
+    });
+  </script>
+</body>
+</html> 

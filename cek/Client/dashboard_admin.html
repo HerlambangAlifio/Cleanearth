@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Admin - CleanEarth</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="css/admin-style.css">
+</head>
+<body>
+  <!-- Mobile Menu Toggle -->
+  <button class="mobile-menu-toggle" id="mobileMenuToggle">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+  
+  <!-- Sidebar Overlay -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-title">CleanEarth</div>
+      <div class="sidebar-subtitle">Admin Dashboard</div>
+    </div>
+    
+    <div class="sidebar-menu">
+      <a href="dashboard_admin.html" class="menu-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="9" y1="9" x2="15" y2="9"></line>
+          <line x1="9" y1="12" x2="15" y2="12"></line>
+          <line x1="9" y1="15" x2="15" y2="15"></line>
+        </svg>
+        Dashboard
+      </a>
+      <a href="dokumentasi_admin.html" class="menu-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        Dokumentasi
+      </a>
+      <a href="event_admin.html" class="menu-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        Event
+      </a>
+      <a href="event_registrations_admin.html" class="menu-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+          <circle cx="8.5" cy="7" r="4"></circle>
+          <line x1="20" y1="8" x2="20" y2="14"></line>
+          <line x1="23" y1="11" x2="17" y2="11"></line>
+        </svg>
+        Pendaftaran
+      </a>
+      <a href="sertifikat_admin.html" class="menu-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <path d="M8 8h8v8H8z"></path>
+          <polyline points="8 8 16 16"></polyline>
+        </svg>
+        Sertifikat
+      </a>
+    </div>
+    
+    <div class="sidebar-footer">
+      <div class="user-info">
+        <div class="user-avatar" id="userAvatar">A</div>
+        <div class="user-details">
+          <h4 id="userName">Admin</h4>
+          <p>Administrator</p>
+        </div>
+      </div>
+      <button class="logout-btn" id="logoutBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+          <polyline points="16 17 21 12 16 7"></polyline>
+          <line x1="21" y1="12" x2="9" y2="12"></line>
+        </svg>
+        Logout
+      </button>
+    </div>
+  </div>
+  
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="page-header">
+      <h1 class="page-title">Dashboard Admin</h1>
+      <p class="page-subtitle">Selamat datang di panel administrasi CleanEarth</p>
+    </div>
+    
+    <!-- Welcome Message -->
+    <div class="welcome-message">
+      <h2 class="welcome-title">Selamat Datang, Admin! 👋</h2>
+      <p class="welcome-text">
+        Anda dapat mengelola seluruh konten dan data sistem CleanEarth dari dashboard ini. 
+        Gunakan menu di sidebar untuk navigasi antara berbagai fitur administrasi.
+      </p>
+    </div>
+    
+    <!-- Statistics Grid -->
+    <div class="dashboard-grid">
+      <div class="stat-card">
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+        </div>
+        <div class="stat-content">
+          <div class="stat-number" id="totalEvents">0</div>
+          <div class="stat-label">Total Event</div>
+        </div>
+      </div>
+      
+      <div class="stat-card success">
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="8.5" cy="7" r="4"></circle>
+          </svg>
+        </div>
+        <div class="stat-content">
+          <div class="stat-number" id="totalUsers">0</div>
+          <div class="stat-label">Total User</div>
+        </div>
+      </div>
+      
+      <div class="stat-card warning">
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="8.5" cy="7" r="4"></circle>
+            <line x1="20" y1="8" x2="20" y2="14"></line>
+            <line x1="23" y1="11" x2="17" y2="11"></line>
+          </svg>
+        </div>
+        <div class="stat-content">
+          <div class="stat-number" id="pendingRegistrations">0</div>
+          <div class="stat-label">Pendaftaran Pending</div>
+        </div>
+      </div>
+      
+      <div class="stat-card info">
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+        </div>
+        <div class="stat-content">
+          <div class="stat-number" id="totalDokumentasi">0</div>
+          <div class="stat-label">Total Dokumentasi</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Quick Actions Section -->
+    <div class="content-section">
+      <div class="section-header">
+        <h2 class="section-title">Aksi Cepat</h2>
+        <p class="section-subtitle">Kelola konten dengan cepat</p>
+      </div>
+      <div class="quick-actions-grid">
+        <a href="event_admin.html" class="quick-action-card">
+          <div class="quick-action-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+          </div>
+          <div class="quick-action-content">
+            <h3 class="quick-action-title">Kelola Event</h3>
+            <p class="quick-action-description">Buat dan edit event</p>
+          </div>
+          <div class="quick-action-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </div>
+        </a>
+        
+        <a href="dokumentasi_admin.html" class="quick-action-card">
+          <div class="quick-action-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+          </div>
+          <div class="quick-action-content">
+            <h3 class="quick-action-title">Kelola Dokumentasi</h3>
+            <p class="quick-action-description">Upload dan edit dokumentasi</p>
+          </div>
+          <div class="quick-action-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </div>
+        </a>
+        
+        <a href="event_registrations_admin.html" class="quick-action-card">
+          <div class="quick-action-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="8.5" cy="7" r="4"></circle>
+              <line x1="20" y1="8" x2="20" y2="14"></line>
+              <line x1="23" y1="11" x2="17" y2="11"></line>
+            </svg>
+          </div>
+          <div class="quick-action-content">
+            <h3 class="quick-action-title">Pendaftaran Event</h3>
+            <p class="quick-action-description">Kelola pendaftaran user</p>
+          </div>
+          <div class="quick-action-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    // Check authentication and role
+    (function() {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        window.location.href = 'login.html';
+        return;
+      }
+      
+      try {
+        const payload = JSON.parse(atob(token.split('.')[1].replace(/-/g, '+').replace(/_/g, '/')));
+        if (payload.role !== 'admin') {
+          alert('Anda tidak memiliki akses ke halaman ini');
+          localStorage.removeItem('token');
+          window.location.href = 'login.html';
+          return;
+        }
+        
+        // Set user info
+        const userName = document.getElementById('userName');
+        const userAvatar = document.getElementById('userAvatar');
+        
+        const displayName = payload.username || 'Admin';
+        userName.textContent = displayName;
+        userAvatar.textContent = displayName.charAt(0).toUpperCase();
+        
+        // Load dashboard stats
+        loadDashboardStats();
+      } catch (error) {
+        alert('Token tidak valid');
+        localStorage.removeItem('token');
+        window.location.href = 'login.html';
+      }
+    })();
+    
+    // Load dashboard statistics
+    async function loadDashboardStats() {
+      try {
+        const [eventsRes, usersRes, registrationsRes, dokumentasiRes] = await Promise.all([
+          fetch('http://localhost:5000/api/event/public'),
+          fetch('http://localhost:5000/api/user', {
+            headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') }
+          }),
+          fetch('http://localhost:5000/api/event/registrations', {
+            headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') }
+          }),
+          fetch('http://localhost:5000/api/dokumentasi', {
+            headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') }
+          })
+        ]);
+        
+        const events = await eventsRes.json();
+        const users = await usersRes.json();
+        const registrations = await registrationsRes.json();
+        const dokumentasi = await dokumentasiRes.json();
+        
+        document.getElementById('totalEvents').textContent = events.length || 0;
+        document.getElementById('totalUsers').textContent = users.length || 0;
+        document.getElementById('pendingRegistrations').textContent = registrations.filter(r => r.status === 'pending').length || 0;
+        document.getElementById('totalDokumentasi').textContent = dokumentasi.length || 0;
+      } catch (error) {
+        console.error('Error loading dashboard stats:', error);
+      }
+    }
+    
+    // Mobile menu toggle
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const sidebar = document.getElementById('sidebar');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+    
+    mobileMenuToggle.addEventListener('click', function() {
+      sidebar.classList.toggle('open');
+      sidebarOverlay.classList.toggle('open');
+    });
+    
+    sidebarOverlay.addEventListener('click', function() {
+      sidebar.classList.remove('open');
+      sidebarOverlay.classList.remove('open');
+    });
+    
+    // Logout button
+    document.getElementById('logoutBtn').addEventListener('click', function() {
+      if(confirm('Anda yakin ingin logout?')) {
+        localStorage.removeItem('token');
+        window.location.href = 'login.html';
+      }
+    });
+  </script>
+</body>
+</html> 
