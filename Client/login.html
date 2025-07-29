@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - CleanEarth</title>
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+  <div class="login-container">
+    <div class="brand-logo">
+      <img src="assets/bumi.png" alt="Clean Earth Logo" style="width:54px;height:54px;object-fit:contain;">
+    </div>
+    
+    <h2>Login CleanEarth</h2>
+    <a href="index.html" class="back-btn">
+      <span class="back-icon">
+        <svg width="22" height="22" fill="none" stroke="#3498db" stroke-width="2" style="vertical-align:middle;"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </span>
+      Kembali
+    </a>
+    <div class="divider"></div>
+    <form id="loginForm" autocomplete="off">
+      <div class="error" id="loginError"></div>
+      <div class="success" id="loginSuccess"></div>
+      <div class="input-group">
+        <span class="input-icon"> <svg width="20" height="20" fill="none" stroke="#3498db" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg> </span>
+        <input type="email" id="email" placeholder="Masukkan email" required autofocus>
+      </div>
+      <div class="input-group">
+        <span class="input-icon"> <svg width="20" height="20" fill="none" stroke="#3498db" stroke-width="2"><circle cx="10" cy="10" r="8"/></svg> </span>        <input type="password" id="password" placeholder="Masukkan password" required>
+      </div>
+      <button type="submit">Login</button>
+    </form>
+    <a href="register.html" class="register-link">Belum punya akun? Daftar di sini</a>
+  </div>
+  <script src="js/auth.js"></script>
+</body>
+</html>

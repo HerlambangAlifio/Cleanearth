@@ -1,0 +1,17 @@
+RewriteEngine On
+
+# Handle 404 errors
+ErrorDocument 404 /bruh/index.html
+
+# Redirect to index.html if directory is accessed
+DirectoryIndex index.html
+
+# Handle client-side routing
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.html [L]
+
+# Enable CORS for API calls
+Header always set Access-Control-Allow-Origin "*"
+Header always set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+Header always set Access-Control-Allow-Headers "Content-Type, Authorization" 

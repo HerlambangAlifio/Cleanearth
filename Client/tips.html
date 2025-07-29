@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="id">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>Tips & Trik - CleanEarth</title>
+		<link
+			rel="stylesheet"
+			href="css/style.css" />
+		<style>
+			:root {
+				--primary: #2c3e50;
+				--secondary: #34495e;
+				--accent: #3498db;
+				--light: #ecf0f1;
+				--dark: #2c3e50;
+				--gray: #95a5a6;
+				--light-gray: #bdc3c7;
+				--white: #ffffff;
+				--text: #333333;
+				--text-light: #7f8c8d;
+			}
+
+			body {
+				background: #f0f2f5;
+				font-family: "Inter", "Segoe UI", Arial, sans-serif;
+				margin: 0;
+				padding: 0;
+				color: var(--text);
+			}
+
+			.main-content {
+				padding: 30px 20px;
+				box-sizing: border-box;
+				max-width: 800px;
+				margin: 0 auto;
+				margin-top: 70px;
+			}
+
+			.tips-section h2 {
+				color: var(--primary);
+				margin-bottom: 10px;
+				font-size: 2.2em;
+				font-weight: 700;
+				text-align: center;
+			}
+
+			.tips-section p.subtitle {
+				color: var(--text-light);
+				margin-bottom: 40px;
+				font-size: 1.1em;
+				line-height: 1.6;
+				text-align: center;
+				max-width: 600px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			#tipsTrik {
+				display: flex;
+				flex-direction: column;
+				gap: 30px;
+			}
+
+			.tip-card {
+				background: var(--white);
+				border-radius: 15px;
+				box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
+				overflow: hidden;
+				transition: all 0.3s ease;
+				border: 1px solid #e0e0e0;
+			}
+
+			.tip-card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+			}
+
+			.tip-card .card-content {
+				padding: 25px;
+			}
+
+			.tip-card .judul {
+				font-weight: 600;
+				margin: 0 0 12px 0;
+				color: var(--primary);
+				font-size: 1.4em;
+				line-height: 1.4;
+			}
+
+			.tip-card .desc {
+				font-size: 1em;
+				color: var(--text-light);
+				margin-bottom: 0;
+				line-height: 1.6;
+			}
+
+			.tip-card .desc ol {
+				padding-left: 20px;
+				margin-top: 10px;
+			}
+
+			.tip-card .desc li {
+				margin-bottom: 8px;
+			}
+
+			.video-placeholder {
+				position: relative;
+				cursor: pointer;
+				display: block;
+				overflow: hidden;
+				border-top: 1px solid #e0e0e0;
+			}
+
+			.video-placeholder img {
+				width: 100%;
+				height: auto;
+				display: block;
+				transition: transform 0.3s ease;
+			}
+
+			.video-placeholder:hover img {
+				transform: scale(1.03);
+			}
+
+			.video-placeholder::before {
+				content: "▶";
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				font-size: 40px;
+				line-height: 70px;
+				text-align: center;
+				color: white;
+				background-color: rgba(0, 0, 0, 0.6);
+				border-radius: 50%;
+				width: 70px;
+				height: 70px;
+				backdrop-filter: blur(2px);
+				transition: background-color 0.3s ease, transform 0.3s ease;
+				text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+				padding-left: 5px;
+				box-sizing: border-box;
+			}
+
+			.video-placeholder:hover::before {
+				background-color: rgba(52, 152, 219, 0.9);
+				transform: translate(-50%, -50%) scale(1.1);
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="navbar-placeholder"></div>
+		<div class="main-content">
+			<div class="tips-section">
+				<h2>Tips & Trik Ramah Lingkungan</h2>
+				<p class="subtitle">
+					Temukan cara-cara kreatif dan praktis untuk memulai gaya hidup hijau
+					langsung dari rumah Anda.
+				</p>
+
+				<div id="tipsTrik">
+					<div class="tip-card">
+						<div class="card-content">
+							<div class="judul">Ubah Sampah Dapur Menjadi Kompos</div>
+							<div class="desc">
+								Manfaatkan sampah organik seperti kulit buah dan sisa sayur
+								menjadi pupuk alami yang subur untuk tanaman Anda.
+								<b>Langkah-langkah:</b>
+								<ol>
+									<li>Kumpulkan sampah organik dari dapur.</li>
+									<li>Siapkan wadah tertutup dengan ventilasi.</li>
+									<li>Campurkan bahan basah dan kering secara seimbang.</li>
+									<li>
+										Aduk kompos seminggu sekali. Dalam 1-2 bulan, kompos siap
+										digunakan.
+									</li>
+								</ol>
+							</div>
+						</div>
+						<a
+							href="https://youtu.be/xokZS0hXir86"
+							target="_blank"
+							class="video-placeholder">
+							<img
+								src="https://placehold.co/800x450/2c3e50/ffffff?text=Lihat+Video+Panduan"
+								alt="Video panduan membuat kompos" />
+						</a>
+					</div>
+
+					<div class="tip-card">
+						<div class="card-content">
+							<div class="judul">DIY Eco-Enzyme Serbaguna</div>
+							<div class="desc">
+								Buat cairan pembersih alami dari fermentasi kulit buah. Efektif
+								untuk membersihkan lantai hingga mengusir serangga.
+								<b>Cara membuat:</b>
+								<ol>
+									<li>
+										Campurkan 1 bagian gula merah, 3 bagian kulit buah, dan 10
+										bagian air.
+									</li>
+									<li>Tutup rapat dan beri ruang udara.</li>
+									<li>
+										Simpan di tempat teduh selama 3 bulan, kocok sesekali.
+									</li>
+								</ol>
+							</div>
+						</div>
+						<a
+							href="https://youtu.be/xokZS0hXir87"
+							target="_blank"
+							class="video-placeholder">
+							<img
+								src="https://placehold.co/800x450/2c3e50/ffffff?text=Lihat+Video+Panduan"
+								alt="Video panduan membuat eco-enzyme" />
+						</a>
+					</div>
+
+					<div class="tip-card">
+						<div class="card-content">
+							<div class="judul">Pot Tanaman Kreatif dari Botol Plastik</div>
+							<div class="desc">
+								Ubah botol plastik bekas menjadi pot tanaman yang unik dan
+								fungsional untuk kebun mini di rumah.
+								<b>Cara membuat:</b>
+								<ol>
+									<li>Potong botol menjadi dua bagian.</li>
+									<li>Buat lubang di bagian bawah sebagai saluran air.</li>
+									<li>Hias atau cat sesuai selera Anda.</li>
+									<li>Isi dengan tanah dan bibit tanaman favorit.</li>
+								</ol>
+							</div>
+						</div>
+						<a
+							href="https://youtu.be/xokZS0hXir88"
+							target="_blank"
+							class="video-placeholder">
+							<img
+								src="https://placehold.co/800x450/2c3e50/ffffff?text=Lihat+Video+Panduan"
+								alt="Video panduan membuat pot dari botol plastik" />
+						</a>
+					</div>
+
+					<div class="tip-card">
+						<div class="card-content">
+							<div class="judul">Suburkan Tanaman dengan Air Cucian Beras</div>
+							<div class="desc">
+								Jangan buang air cucian beras! Air ini kaya akan nutrisi yang
+								sangat baik untuk pertumbuhan tanaman.
+								<b>Tips:</b>
+								<ol>
+									<li>Simpan air cucian beras dalam wadah tertutup.</li>
+									<li>Diamkan 1–2 hari untuk proses fermentasi ringan.</li>
+									<li>Gunakan untuk menyiram tanaman 2–3 kali seminggu.</li>
+								</ol>
+							</div>
+						</div>
+						<a
+							href="https://youtu.be/xokZS0hXir89"
+							target="_blank"
+							class="video-placeholder">
+							<img
+								src="https://placehold.co/800x450/2c3e50/ffffff?text=Lihat+Video+Panduan"
+								alt="Video panduan menggunakan air cucian beras" />
+						</a>
+					</div>
+
+					<div class="tip-card">
+						<div class="card-content">
+							<div class="judul">Sabun Lerak: Alternatif Cuci Piring Alami</div>
+							<div class="desc">
+								Ganti sabun cuci piring komersial dengan sabun alami dari buah
+								lerak yang ramah lingkungan dan bebas residu kimia.
+								<b>Langkah-langkah:</b>
+								<ol>
+									<li>Rebus 10–15 buah lerak dalam 1 liter air.</li>
+									<li>Setelah dingin, saring dan simpan dalam botol.</li>
+									<li>
+										Tambahkan perasan lemon atau daun mint untuk aroma segar.
+									</li>
+								</ol>
+							</div>
+						</div>
+						<a
+							href="https://youtu.be/1UoskWBm1h00"
+							target="_blank"
+							class="video-placeholder">
+							<img
+								src="https://placehold.co/800x450/2c3e50/ffffff?text=Lihat+Video+Panduan"
+								alt="Video panduan membuat sabun lerak" />
+						</a>
+					</div>
+
+					<div class="tip-card">
+						<div class="card-content">
+							<div class="judul">Membuat Kertas Daur Ulang Handmade</div>
+							<div class="desc">
+								Olah kertas bekas menjadi kertas daur ulang yang estetik untuk
+								kartu ucapan, label, atau karya seni lainnya.
+								<b>Langkah-langkah:</b>
+								<ol>
+									<li>Rendam sobekan kertas bekas selama semalam.</li>
+									<li>Blender hingga menjadi bubur kertas.</li>
+									<li>Cetak pada saringan, ratakan, lalu keringkan.</li>
+								</ol>
+							</div>
+						</div>
+						<a
+							href="https://youtu.be/1UoskWBm1h01"
+							target="_blank"
+							class="video-placeholder">
+							<img
+								src="https://placehold.co/800x450/2c3e50/ffffff?text=Lihat+Video+Panduan"
+								alt="Video panduan membuat kertas daur ulang" />
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="js/navbar_simple.js"></script>
+		<script>
+			// Render navbar
+			renderNavbarPublic("tips");
+		</script>
+	</body>
+</html>
